@@ -62,3 +62,13 @@ will correspond to
 Since saving and loading the tree takes place in the background, you can continue to work with the tree (for example, you can walk around the tree while it is being saved). Of course, in the case of working with a disk, this is not so important, but if, for example, work over a network, then it may be useful.
 
 ## Extension points
+You can add your own commands to the app, to do this you need to implement `Command` interface and add yor class to map of commands. Pay attention that you may add `Description` annotation to your command, that provides info for `help` command.
+
+```
+@Description(name = "myGreatCommand", param = "<>", description = "does smth awesome")
+class MyCommand(override var state: State) : Command {
+    override fun execute(args: List<String>) {
+        }
+    }
+
+```
